@@ -2,8 +2,10 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
+import data from './data';
 
 function App() {
+  
   return ( 
   <BrowserRouter>
    <div className="grid-container">
@@ -18,8 +20,13 @@ function App() {
    </header>
    <main>
      <Routes>
-     <Route path="/product/:id" element={<ProductScreen/>}></Route>
      <Route exact path="/" element={<HomeScreen/>}></Route>
+       {
+          data.products.map((product)=> {
+          return (<Route path={`/product/${product._id}`} element={<ProductScreen id={product._id}/>}>  </Route>)
+         })
+       }
+     
      </Routes>
    </main>
   
