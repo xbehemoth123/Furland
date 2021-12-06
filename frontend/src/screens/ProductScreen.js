@@ -1,12 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Rating from '../components/Rating';
 import data from '../data';
 
-export default function ProductScreen(prop){
-    const product = data.products.find((x)=>x._id === prop.id);
+export default function ProductScreen(props){
+    const product = data.products.find((x)=>x._id === props.id);
+ /* const product = data.products.find((x) => x._id === props.match.params.id);
+  if (!product){
+      return <div>Product Not Found</div>
+  }*/
     return(
         <div>
-            <div className="row">
+            <Link to="/">Back to results</Link>
+            <div className="row top">
             <div className="col-2">
                 <img src={product.image} alt={product.name}></img>
             </div>
@@ -20,6 +26,12 @@ export default function ProductScreen(prop){
                         numReviews={product.numReviews}
                         ></Rating>
                     </li>   
+                    <li>
+                        Price: ${product.price}
+                    </li>
+                    <li>
+                        Description: {product.description}
+                    </li>
                      
                  </ul>
                  </div>
@@ -27,18 +39,19 @@ export default function ProductScreen(prop){
                 <div className="card card-body">
                     <ul>
                         <li>
-                        <div className="row">
-                            <div>Price</div>
+                            <div className="row">
+                            <div>Price:</div>
                             <div className="price">${product.price}</div>
-                        </div>
+                            </div>
                         </li>
                         <li>
                             <div className="row">
-                                <div>Status</div>
+                                <div>Status:</div>
                                 <div>
-                                    {product.countInStock>0?(<span className="success">In Stock</span>
+                                    {product.countInStock>0?(
+                                    <span className="success">In stock</span>
                                     ) : (
-                                    <span className="error">Unavailable</span>
+                                    <span className="error">Out of stock</span>
                                      ) }
                                 </div>
                             </div>

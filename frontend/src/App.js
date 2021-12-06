@@ -26,7 +26,6 @@ function App() {
           return (<Route path={`/product/${product._id}`} element={<ProductScreen id={product._id}/>}>  </Route>)
          })
        }
-     
      </Routes>
    </main>
   
