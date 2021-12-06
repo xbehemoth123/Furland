@@ -10,13 +10,14 @@ export default function ProductScreen(props){
       return <div>Product Not Found</div>
   }*/
     return(
-        <div>
-            <Link to="/">Back to results</Link>
-            <div className="row top">
+        <div >
+            <Link to="/" className="back">Back to results</Link>
+            <div className="row top productScreen">
             <div className="col-2">
-                <img src={product.image} alt={product.name}></img>
+                <img className="large" src={product.image} alt={product.name}></img>
             </div>
-            <div className="col-1">
+            <div className="col-2">
+            <div>
                 <ul>
                     <li>
                         <h1>{product.name}</h1>
@@ -35,7 +36,7 @@ export default function ProductScreen(props){
                      
                  </ul>
                  </div>
-            <div className="col-1">
+ 
                 <div className="card card-body">
                     <ul>
                         <li>
@@ -63,6 +64,7 @@ export default function ProductScreen(props){
                 </div>
             </div>
             </div>
-        </div>
+            </div>
+
     );
 }

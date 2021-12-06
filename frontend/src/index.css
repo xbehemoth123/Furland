@@ -1,15 +1,9 @@
 html {
   font-size: 62.5%;
   box-sizing: border-box;
+  height: 100%;
 }
-ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-li {
-  margin-top: 1rem;
-}
+
 body{
   margin: 0;
   height: 100vh;
@@ -37,9 +31,13 @@ body{
 header {
   grid-area: header;
   background-color: #203040;
+  margin-bottom: 1rem;
 }
 main {
   grid-area: main;
+}
+.card-body {
+  max-width: 30rem;
 }
 
 footer {
@@ -56,6 +54,34 @@ a {
 }
 a:hover{
   color: orange;
+}
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+li {
+  margin-top: 1rem;
+}
+button{
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 0.1rem #a4a4a4 solid;
+  font-size: 1.6rem;
+  font-family: Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8f8f8;
+  cursor: pointer;
+}
+button:hover {
+  border: 0.1rem black solid;
+}
+button.primary {
+  background-color: #f0c040;
+}
+button.block {
+  width: 100%;
 }
 /* Header */
 
@@ -87,6 +113,16 @@ a.brand {
 }
 .col-2{
   flex: 2 1 50rem;
+  justify-content: center;
+}
+
+.productScreen {
+  padding: 1rem 20rem;
+  gap: 2rem;
+}
+.back {
+  padding-left: 2rem;
+  font-size: 2rem;
 }
 /* Image */
 img{
@@ -98,7 +134,12 @@ img.medium {
   width: 100%;
   max-height: 25rem;
 }
+img.large {
+  max-width: 60rem;
+  max-height: 80rem;
+  width: 100%;
 
+}
 /* Card */ 
 
 .card {
@@ -108,12 +149,12 @@ img.medium {
   margin: 1rem;
 }
 
-.card-body {
-  padding: 1rem;
-}
+
 .card-body > * {
   margin-bottom: 0.5rem;
+  padding: 1rem;
 }
+
 .price {
   font-size: 2rem;
 }
@@ -130,6 +171,13 @@ img.medium {
 .success {
   color: #20a020;
 }
-.success {
+.error {
   color: #a02020;
+}
+
+@media only screen and (max-width: 1500px) {
+  .productScreen {
+    padding: 1rem;
+  }
+
 }
